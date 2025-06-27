@@ -1,0 +1,47 @@
+[manifest]
+version = "1.2"
+dump_lua = true
+priority = -2
+
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''    G.playing_cards = {}'''
+position = "before"
+payload = '''self.playbook_extra = CardArea(
+        0, 0,
+        CAI.consumeable_W,
+        CAI.consumeable_H, 
+        {card_limit = 1e100, type = 'joker', highlight_limit = 1e100, akyrs_emplace_func = "always_placeable"})
+        
+self.jokers.states.collide.can = true
+self.consumeables.states.collide.can = true
+self.hand.states.collide.can = true
+self.deck.states.collide.can = true
+self.playbook_extra.states.visible = false
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''        G.hand:hard_set_VT()'''
+position = "before"
+payload = '''
+G.playbook_extra.T.x = G.consumeables.T.x
+G.playbook_extra.T.y = G.consumeables.T.y + 3
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''        G.discard:hard_set_VT()'''
+position = "after"
+payload = '''
+G.playbook_extra:hard_set_VT()
+'''
+match_indent = true

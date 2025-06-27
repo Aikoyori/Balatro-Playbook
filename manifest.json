@@ -11,7 +11,7 @@
 	"badge_text_colour": "ff4545",
 	"version": "0.0.0~EXPERIMENTAL-250627a",
 	"dependencies": [
-        "aikoyorisshenanigans (>=0.2.0-alpha-250627b)",
+        "aikoyorisshenanigans (>=0.2.0-alpha-250628a)",
         "Steamodded (>=1.0.0~BETA-0614a)",
         "Cryptid (>=0.5.9)",
         "Talisman (>=2.2.0a)",

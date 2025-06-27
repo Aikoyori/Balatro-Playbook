@@ -123,3 +123,58 @@ SMODS.Joker{
         end
     end
 }
+
+SMODS.Joker{
+    key = "hph",
+    atlas = "playbook_playbooksprites",
+    pos = { x = 5, y = 0 },
+    soul_pos = { x = 6, y = 0 },
+    blueprint_compat = true,
+    config = {
+        extras = {
+        }
+    },
+    add_to_deck = function (self, card, from_debuff)
+        G.playbook_extra.states.collide.can = true
+        G.playbook_extra.states.visible = true
+        AKYRS.simple_event_add(
+        function()
+            G.GAME.playbook_hph = #SMODS.find_card("j_playbook_hph",true)
+            return true
+        end, 0)
+    end,
+    remove_from_deck = function (self, card, from_debuff)
+        
+        AKYRS.simple_event_add(
+        function()
+            G.GAME.playbook_hph = #SMODS.find_card("j_playbook_hph",true)
+            if G.GAME.playbook_hph < 1 then
+                G.playbook_extra.states.collide.can = false
+                G.playbook_extra.states.visible = false
+                for _,cr in ipairs(G.playbook_extra.cards) do
+                    if cr.ability.consumeable then
+                        draw_card(G.playbook_extra,G.consumeables,nil,nil,false,cr)
+                    elseif cr.ability.set == "Joker" then
+                        draw_card(G.playbook_extra,G.jokers,nil,nil,false,cr)
+                    else
+                        draw_card(G.playbook_extra,G.deck,nil,nil,false,cr)
+                    end
+                end
+            end
+            return true
+        end, 0)
+    end,
+    rarity = 'playbook_playful',
+    cost = 5000,
+    loc_vars = function (self, info_queue, card)
+        return {
+        }
+    end,
+    calculate = function (self, card, context)
+        if context.joker_main then
+            return {
+                --mult = card.ability.extras.mult
+            }
+        end
+    end
+}

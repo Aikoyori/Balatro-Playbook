@@ -46,7 +46,38 @@ return {
                         "Art Concept by {C:green}superbread",
                     }
                 }
-            }
+            },
+            j_playbook_hph = {
+                name = "Heaven{f:akyrs_NotoEmoji}🃏",
+                text = {
+                    {
+                        "Enables a new {C:attention}Deck{} to store cards",
+                        "Cards in this area {C:attention}triggers{} as normal, in order.",
+                    },
+                    {
+                        "Also plays {C:red,f:5}テトリス{} by {f:5,C:attention}柊マグネタイト{}",
+                    },
+                    {
+                        "Soul Art by {C:red}Heaven{f:akyrs_NotoEmoji,C:red}🃏",
+                    }
+                }
+            },
+            j_playbook_placeholder_ab_1 = {
+                name = "Heaven{f:akyrs_NotoEmoji}🃏",
+                text = {
+                    {
+                        "This Joker gains {C:white,X:mult} X#1# {} Mult if played hand",
+                        "contains {C:attention}Four of a Kind{}",
+                        "Additionally, if cards held in hand contains {C:attention}at least{}",
+                        "Two {C:attention}Pair{}s, Double it and give it to the next Joker",
+                        "In addition to that, also gain {C:money}$#2#{} at the end of the round",
+                        "If you have discarded a {C:attention}Flush of {C:hearts}Heart{} this Ante",
+                        "Lastly, scored {C:attention}Aces of {C:clubs}Clubs{} converts a",
+                        "consumable into {C:purple}Eternal {C:playbook_playful}Playful{} Joker",
+                        "{C:inactive}(Currently {C:white,X:mult} x#3# {C:inactive} Mult)",
+                    },
+                }
+            },
         },
         Other={},
         Planet={},

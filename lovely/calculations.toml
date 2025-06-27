@@ -1,0 +1,21 @@
+[manifest]
+version = "1.2"
+dump_lua = true
+priority = -2
+
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''        -- TARGET: add your own CardAreas for joker evaluation'''
+position = "after"
+payload = '''if G.GAME.playbook_hph > 0 then table.insert(t, G.playbook_extra) end'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''        -- TARGET: add your own CardAreas for playing card evaluation'''
+position = "after"
+payload = '''if G.GAME.playbook_hph > 0 then table.insert(t, G.playbook_extra) end'''
+match_indent = true
