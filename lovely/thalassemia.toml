@@ -1,0 +1,12 @@
+[manifest]
+version = "1.2"
+dump_lua = true
+priority = 20
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''    	text = (amt[1] > 5 and ('{' .. tostring(amt[1]) .. '}') or string.rep('^', amt[1])) .. tostring(amt[2]) .. ' ' .. localize('k_mult')'''
+position = "at"
+payload = '''text = (to_number(amt[1]) > to_number(5) and ('{' .. tostring(amt[1]) .. '}') or string.rep('^', amt[1])) .. tostring(amt[2]) .. ' ' .. localize('k_mult')'''
+match_indent = true

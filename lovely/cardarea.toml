@@ -11,7 +11,7 @@ pattern = '''    G.playing_cards = {}'''
 position = "before"
 payload = '''self.playbook_extra = CardArea(
         0, 0,
-        CAI.consumeable_W,
+        CAI.consumeable_W * 2,
         CAI.consumeable_H, 
         {card_limit = 1e100, type = 'joker', highlight_limit = 1e100, akyrs_emplace_func = "no_hph"})
         

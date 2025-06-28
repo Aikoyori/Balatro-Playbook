@@ -9,7 +9,13 @@ return {
                 name = "Triangle II",
                 text = {
                     {
-                        "{C:purple,X:edition,s:4} ^^^#1# {s:4} Mult"
+                        "If discarded hand is a {C:attention}Three of a Kind{}, for each discarded card --",
+                        "If there is an {C:attention}empty consumeable slot{}, create a {C:attention}Colour Card{},",
+                        "otherwise {C:attention}add one round{} to each Colour Card",
+                    },
+                    {
+                        "If played hand is a {C:attention}Three of a Kind{}, Colour Cards give {X:dark_edition,C:white}\\{n\\}#1#{} Mult,",
+                        "where {C:attention}n{} is {X:dark_edition,C:white}log_#2#(A){}, where A is the {C:attention}number of triggers that Colour card{} has",
                     },
                     {
                         "Soul Art by {C:red}notmario"
@@ -53,6 +59,7 @@ return {
                     {
                         "Enables a new {C:attention}Deck{} to store cards",
                         "Cards in this area {C:attention}triggers{} as normal, in order.",
+                        "{C:inactive}(Click the Joker to toggle){}"
                     },
                     {
                         "Also plays {C:red,f:5}テトリス{} by {f:5,C:attention}柊マグネタイト{}",
@@ -62,8 +69,44 @@ return {
                     }
                 }
             },
-            j_playbook_placeholder_ab_1 = {
-                name = "Heaven{f:akyrs_NotoEmoji}🃏",
+            j_playbook_sad_joker = {
+                name = "Sad Joker (Junchbo)",
+                text = {
+                    {
+                        "{C:red}Prevents death{} if you",
+                        "{C:purple}score{} more than the blind requirements",
+                    },
+                    {
+                        "Sprite by {C:green}Th30ne"
+                    }
+                }
+            },
+            j_playbook_hyperrealistic_scary_joker = {
+                name = "Hyperrealisticly Scary Joker",
+                text = {
+                    {
+                        "Played {C:attention}face{} cards",
+                        "give {C:chips}+#1#{} Chips and {C:mult}+#2#{} Mult",
+                        "when scored",
+                    },
+                    {
+                        "Sprite by {C:green}Th30ne"
+                    }
+                }
+            },
+            j_playbook_smeared_joker = {
+                name = "{f:5}real{} Smeared Joker",
+                text = {
+                    {
+                        "Played {C:spades}Spades{} gain",
+                    },
+                    {
+                        "Sprite by {C:green}Astro"
+                    }
+                }
+            },
+            j_playbook_mysthaps = {
+                name = "Mysthaps",
                 text = {
                     {
                         "This Joker gains {C:white,X:mult} X#1# {} Mult if played hand",
@@ -71,11 +114,15 @@ return {
                         "Additionally, if cards held in hand contains {C:attention}at least{}",
                         "Two {C:attention}Pair{}s, Double it and give it to the next Joker",
                         "In addition to that, also gain {C:money}$#2#{} at the end of the round",
-                        "If you have discarded a {C:attention}Flush of {C:hearts}Heart{} this Ante",
+                        "If you have discarded a {C:attention}Flush of {C:hearts}Hearts{} {C:inactive}[{V:1,f:5}#4#{}{C:inactive}]{} this Ante",
                         "Lastly, scored {C:attention}Aces of {C:clubs}Clubs{} converts a",
                         "consumable into {C:purple}Eternal {C:playbook_playful}Playful{} Joker",
-                        "{C:inactive}(Currently {C:white,X:mult} x#3# {C:inactive} Mult)",
+                        "{C:inactive}(Currently {C:white,X:mult} X#3# {C:inactive} Mult)",
                     },
+                    {
+                        "OC of {C:green}Mysthaps",
+                        "Soul Art by {C:red}Aikoyori",
+                    }
                 }
             },
         },
@@ -97,6 +144,7 @@ return {
             k_playbook_triggered = "Triggered!",
             k_playbook_playful = "Playful",
             k_playbook_the = "the",
+            k_playbook_sad_saved = "Saved by Junchbo."
         },
         high_scores={},
         labels={
