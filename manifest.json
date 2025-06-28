@@ -9,7 +9,7 @@
 	"priority": 727,
 	"badge_colour": "b545ff",
 	"badge_text_colour": "ff4545",
-	"version": "0.0.0~EXPERIMENTAL-250627a",
+	"version": "0.0.0~EXPERIMENTAL-250628a",
 	"dependencies": [
         "aikoyorisshenanigans (>=0.2.0-alpha-250628a)",
         "Steamodded (>=1.0.0~BETA-0614a)",

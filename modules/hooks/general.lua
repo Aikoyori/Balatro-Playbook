@@ -22,7 +22,7 @@ end
 
 local cardUpdateHook = Card.update
 function Card:update(dt)
-    if self.config.center_key == "j_playbook_hph" and self.states.drag.is then
+    if self.config.center_key == "j_playbook_hph" and self.states.drag.is and G.playbook_extra then
         G.playbook_extra:set_role{role_type = "Minor", xy_bond = "Strong", major = self, offset = { x = -1 , y = 3}}
     end
     return cardUpdateHook(self,dt)
@@ -31,7 +31,7 @@ end
 local strun = Game.start_run
 function Game:start_run(args)
     local x = {strun(self,args)}
-    if G.GAME.playbook_hph > 0 then
+    if G.GAME.playbook_hph > 0 and G.playbook_extra then
         G.playbook_extra.states.collide.can = true
         G.playbook_extra.states.visible = true
     end
