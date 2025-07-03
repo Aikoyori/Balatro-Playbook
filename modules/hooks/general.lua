@@ -42,7 +42,7 @@ end
 
 local cardClickHook = Card.click
 function Card:click()
-    if self.config.center_key == "j_playbook_hph" then
+    if self.config.center_key == "j_playbook_hph" and G and G.GAME then
         if self.states.drag.is and G.playbook_extra then
             G.playbook_extra:set_role{role_type = "Minor", xy_bond = "Strong", major = self, offset = { x = -G.playbook_extra.T.w/2 + 1, y = 3}}
         end
@@ -51,7 +51,7 @@ function Card:click()
 
     local x = {cardClickHook(self)}
     
-    if self.config.center_key == "j_playbook_hph" then
+    if self.config.center_key == "j_playbook_hph" and G and G.GAME and G.playbook_extra then
         G.playbook_extra.states.visible = self.highlighted
     end
     return unpack(x)

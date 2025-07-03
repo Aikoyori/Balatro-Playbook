@@ -109,19 +109,48 @@ return {
                 name = "Mysthaps",
                 text = {
                     {
-                        "This Joker gains {C:white,X:mult} X#1# {} Mult if played hand",
+                        "This Joker gains {C:white,X:dark_edition} ^#1# {} Mult if played hand",
                         "contains {C:attention}Four of a Kind{}",
                         "Additionally, if cards held in hand contains {C:attention}at least{}",
-                        "Two {C:attention}Pair{}s, Double it and give it to the next Joker",
+                        "two {C:attention}Pair{}s, Double it and give it to the next Joker {C:inactive}(if one exists)",
                         "In addition to that, also gain {C:money}$#2#{} at the end of the round",
-                        "If you have discarded a {C:attention}Flush of {C:hearts}Hearts{} {C:inactive}[{V:1,f:5}#4#{}{C:inactive}]{} this Ante",
+                        "if you have discarded a {C:attention}Flush of {C:hearts}Hearts{} {C:inactive}[{V:1,f:5}#4#{}{C:inactive}]{} this Ante",
                         "Lastly, scored {C:attention}Aces of {C:clubs}Clubs{} converts a",
                         "consumable into {C:purple}Eternal {C:playbook_playful}Playful{} Joker",
-                        "{C:inactive}(Currently {C:white,X:mult} X#3# {C:inactive} Mult)",
+                        "set its edition to {C:dark_edition}Negative{} and move it to the {C:attention}Joker{} slot",
+                        "{C:inactive}(Currently {C:white,X:dark_edition} ^#3# {C:inactive} Mult)",
                     },
                     {
                         "OC of {C:green}Mysthaps",
                         "Soul Art by {C:red}Aikoyori",
+                    }
+                }
+            },
+            j_playbook_nxkoo = {
+                name = "Nxkoo",
+                text = {
+                    {
+                        "This Joker {C:white,X:dark_edition} FUCKING {} {C:white,X:red} DIES",
+                        "when you obtain a copy of it"
+                    },
+                    {
+                        "OC of {C:green}Nxkoo",
+                        "Soul Art by {C:red}Aikoyori",
+                    }
+                }
+            },
+            j_playbook_yappa = {
+                name = {
+                    "{f:5}ヨウニ重早",
+                    '{s:0.7}Youni "Yappa" Kasapaya'
+                },
+                text = {
+                    {
+                        "This Joker"
+                    },
+                    {
+                        "OC based on {C:green}hayaunderscore's{} {C:dark_edition}Yonii \"Paya\" Hayasaka",
+                        "Design and Soul Art by {C:red}Aikoyori",
                     }
                 }
             },

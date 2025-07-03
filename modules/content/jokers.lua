@@ -306,17 +306,17 @@ SMODS.Joker{
     cost = 5000,
     config = {
         extras = {
-            xmult_g = 1,
-            xmult = 1,
-            cash = 5,
+            emult_g = 1,
+            emult = 1,
+            cash = 25,
         }
     },
     loc_vars = function (self, info_queue, card)
         return {
             vars = {
-                card.ability.extras.xmult_g,
+                card.ability.extras.emult_g,
                 card.ability.extras.cash,
-                card.ability.extras.xmult,
+                card.ability.extras.emult,
                 G.GAME.playbook_flush_of_hearts_discarded_this_ante and "○" or "×",
                 colours = {
                     G.GAME.playbook_flush_of_hearts_discarded_this_ante and G.C.GREEN or G.C.RED
@@ -329,13 +329,16 @@ SMODS.Joker{
             if next(context.poker_hands["Four of a Kind"]) then
                 SMODS.calculate_effect({
                     func = function ()
-                        card.ability.extras.xmult = card.ability.extras.xmult + card.ability.extras.xmult_g
+                        card.ability.extras.emult = card.ability.extras.emult + card.ability.extras.emult_g
                     end,
                     message = localize("k_upgrade_ex")
                 },card)
             end
         end
         if context.joker_main then
+            SMODS.calculate_effect({
+                emult = card.ability.extras.emult
+            }, card)
             local ind = AKYRS.find_index(card.area.cards,card)
             if ind < #card.area.cards and card.area.cards[ind+1] then
                 local ccdd = card.area.cards[ind+1]
@@ -345,7 +348,7 @@ SMODS.Joker{
                         if #hand_poker_hand["Pair"] >= 2 then
                             if card.area then
                                 SMODS.calculate_effect({
-                                    xmult = 2 * card.ability.extras.xmult
+                                    emult = 2 * card.ability.extras.emult
                                 }, ccdd)
                             end
                         end
@@ -394,6 +397,10 @@ SMODS.Joker{
                                             realc:flip()
                                             realc:set_ability(real_j)
                                             realc.ability.eternal = true
+                                            realc:set_edition("e_negative",true,true)
+                                            play_sound("card1")
+                                            realc.area:remove_card(realc)
+                                            G.jokers:emplace(realc)
                                             return true
                                         end
                                     )
@@ -405,4 +412,31 @@ SMODS.Joker{
             }
         end
     end
+}
+
+SMODS.Joker{
+    key = "nxkoo",
+    atlas = "playbook_playbooksprites",
+    pos = { x = 2, y = 1 },
+    soul_pos = { x = 3, y = 1},
+    rarity = "playbook_the",
+    cost = -5,
+    add_to_deck = function (self, card, from_debuff)
+        card:start_dissolve({G.C.BLACK,G.C.WHITE},false,20)
+    end,
+    calculate = function (self, card, context)
+        if context.before or context.after or context.joker_main or context.setting_blind or context.starting_shop or context.ending_shop or context.buying_card then
+            card:start_dissolve({G.C.BLACK,G.C.WHITE},false,20)
+        end
+    end
+}
+
+
+SMODS.Joker{
+    key = "yappa",
+    atlas = "playbook_playbooksprites",
+    pos = { x = 6, y = 4 },
+    soul_pos = { x = 7, y = 4 },
+    rarity = "playbook_the",
+    cost = 5000,
 }
