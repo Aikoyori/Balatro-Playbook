@@ -437,6 +437,40 @@ SMODS.Joker{
     atlas = "playbook_playbooksprites",
     pos = { x = 6, y = 4 },
     soul_pos = { x = 7, y = 4 },
-    rarity = "playbook_the",
+    rarity = "playbook_playful",
     cost = 5000,
+    calculate = function (self, card, context)
+        if context.joker_main and #G.play.cards > 1  then
+            return {
+                dollars = G.GAME.dollars * (#G.play.cards - 1)
+            }
+        end
+        if context.ending_shop then
+            return {
+                func = function ()
+                    local origin = to_big(G.GAME.dollars)
+                    ease_dollars(origin:ceil() - origin)
+                    AKYRS.simple_event_add(
+                        function ()
+                            local origin = to_big(G.GAME.dollars)
+                            if origin:mod(to_big(2)) == to_big(1) then
+                                ease_dollars(origin)
+                            else
+                                ease_dollars(- origin / to_big(2))
+                            end
+                            AKYRS.simple_event_add(function ()
+                                local origin = to_big(G.GAME.dollars)
+                                if origin > to_big(10000) then
+                                    ease_dollars(-origin+1)
+                                end
+                                
+                                return true
+                            end)
+                            return true
+                        end
+                    )
+                end
+            }
+        end
+    end
 }

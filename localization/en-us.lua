@@ -22,8 +22,8 @@ return {
                     }
                 }
             },
-            j_playbook_ramina_rogers = {
-                name = "Ramina Rogers",
+            j_playbook_sylvie = {
+                name = "Sylvie",
                 text = {
                     {
                         "This Joker gains {C:purple,X:edition} ^^^^1 {} Mult",
@@ -146,7 +146,10 @@ return {
                 },
                 text = {
                     {
-                        "This Joker"
+                        "Gain {X:money} $Xm {}, where {C:money}m{} is {C:attention}how many cards you played{}",
+                        "At the end of shop, if you have {C:attention}non-integer{} money, round it up",
+                        "if you have {C:attention}even{} money, halves it. otherwise {C:attention}doubles{} it",
+                        "and if you have more than {C:money}$10000{} (fixed number), Set money to {C:money}$1"
                     },
                     {
                         "OC based on {C:green}hayaunderscore's{} {C:dark_edition}Yonii \"Paya\" Hayasaka",

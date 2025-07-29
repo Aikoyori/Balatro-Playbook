@@ -9,16 +9,13 @@
 	"priority": 727,
 	"badge_colour": "b545ff",
 	"badge_text_colour": "ff4545",
-	"version": "0.0.0~EXPERIMENTAL-250704a",
+	"version": "0.0.0~EXPERIMENTAL-250729a",
 	"dependencies": [
         "aikoyorisshenanigans (>=0.2.0-alpha-250628c)",
         "Steamodded (>=1.0.0~BETA-0614a)",
         "Cryptid (>=0.5.9)",
         "Talisman (>=2.2.0a)",
         "MoreFluff (>=1.5.6)",
-        "Lovely (>=0.8.0)",
-        "Handy (>=1.5.1-qf1)",
-        "Overflow",
-		"DebugPlus (>=1.5.0~dev)"
+        "Lovely (>=0.8.0)"
     ]
 }
